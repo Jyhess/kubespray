@@ -49,6 +49,8 @@ spec:
             - --tcp-services-configmap=$(POD_NAMESPACE)/tcp-services
             - --udp-services-configmap=$(POD_NAMESPACE)/udp-services
             - --annotations-prefix=nginx.ingress.kubernetes.io
+            - --http-port={{ ingress_nginx_insecure_port }}
+            - --https-port={{ ingress_nginx_secure_port }}
           securityContext:
             capabilities:
                 drop:
@@ -68,10 +70,10 @@ spec:
                   fieldPath: metadata.namespace
           ports:
             - name: http
-              containerPort: 80
+              containerPort: {{ ingress_nginx_insecure_port }}
               hostPort: {{ ingress_nginx_insecure_port }}
             - name: https
-              containerPort: 443
+              containerPort: {{ ingress_nginx_secure_port }}
               hostPort: {{ ingress_nginx_secure_port }}
           livenessProbe:
             failureThreshold: 3

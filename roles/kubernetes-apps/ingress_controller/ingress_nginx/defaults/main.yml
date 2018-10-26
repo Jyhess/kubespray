@@ -6,6 +6,7 @@ ingress_nginx_nodeselector:
 ingress_nginx_allowed_in_master_node: false
 ingress_nginx_insecure_port: 80
 ingress_nginx_secure_port: 443
-ingress_nginx_configmap: {}
+ingress_nginx_configmap:
+  use-port-in-redirects: "true"
 ingress_nginx_configmap_tcp_services: {}
 ingress_nginx_configmap_udp_services: {}

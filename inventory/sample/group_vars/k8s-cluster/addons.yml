@@ -50,6 +50,7 @@ ingress_nginx_enabled: false
 # ingress_nginx_insecure_port: 80
 # ingress_nginx_secure_port: 443
 # ingress_nginx_configmap:
+#   use-port-in-redirects: "true"
 #   map-hash-bucket-size: "128"
 #   ssl-protocols: "SSLv2"
 # ingress_nginx_configmap_tcp_services:
